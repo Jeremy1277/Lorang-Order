@@ -882,7 +882,7 @@ ${errors.join('\n\n')}
     document.getElementById('f-from').value=dateKey(t);
     document.getElementById('f-to').value=dateKey(te);
     populateDropdowns();initBtnLabels();offDayShown=false;setMode('j0');
-    startFtsAutoRefresh();  // lancer le refresh FTS après chargement DataFlow
+    setTimeout(startFtsAutoRefresh, 3000);  // différé pour ne pas bloquer l'UI
     loadSapMap();           // enrichissement SAP via DA_EXPEDIEES (non bloquant)
   }catch(err){
     console.error('[FlowOrder] Erreur finale:',err);
